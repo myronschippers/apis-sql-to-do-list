@@ -37,9 +37,26 @@ router.post('/', (req, res) => {
 });
 
 // PUT for updating complete status
-router.put('/', (req, res) => {});
+router.put('/:id', (req, res) => {
+  const taskId = req.params.id;
+  const queryText = `UPDATE "tasks" SET "complete" = $1 WHERE "id" = $2;`;
+
+  pool.query(queryText, [
+    req.body.complete,
+    taskId
+  ])
+    .then((dbResponse) => {
+      res.sendStatus(200);
+    })
+    .catch((err) => {
+      console.log('PUT Error:', err);
+      res.sendStatus(500);
+    });
+});
 
 // DELETE for task removal
-router.delete('/', (req, res) => {});
+router.delete('/:id', (req, res) => {
+  const taskId = req.params.id;
+});
 
 module.exports = router;
