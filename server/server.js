@@ -13,7 +13,7 @@ app.use(bodyParser.json());
 app.use(express.static('server/public'));
 
 // routes config
-app.use('/api/tasks');
+app.use('/api/tasks', tasksRouter);
 
 // kick off the server
 app.listen(PORT, () => {
