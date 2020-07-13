@@ -3,3 +3,75 @@ body {
   margin: 0;
   background-color: whitesmoke;
 }
+
+.statusIcon {
+  box-sizing: border-box;
+  display: inline-block;
+  width: 30px;
+  height: 30px;
+  margin: 4px;
+  background-color: #ffffff;
+  box-shadow: 0 0 0 2px #ffffff;
+  border: 4px solid #58616a;
+  border-radius: 100%;
+  position: relative;
+  font-size: 0;
+  cursor: pointer;
+}
+
+.statusIcon:before,
+.statusIcon:after {
+  content: "";
+  position: absolute;
+  border: 2px solid #58616a;
+  width: 16px;
+  height: 0;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.statusIcon-positive,
+.statusIcon-positive:before,
+.statusIcon-positive:after {
+  border-color: #45bb59;
+}
+
+.statusIcon-positive:before {
+  left: 30%;
+  top: 40%;
+  width: 14px;
+}
+
+.statusIcon-positive:after {
+  left: 15%;
+  top: 43%;
+  width: 6px;
+}
+
+.statusIcon-negative,
+.statusIcon-negative:before,
+.statusIcon-negative:after {
+  border-color: #c2003a;
+}
+
+.statusIcon-negative:before,
+.statusIcon-negative:after {
+  width: 16px;
+  left: 14%;
+  top: 42%;
+}
+
+.statusIcon-negative:before,
+.statusIcon-positive:before {
+  transform: rotate(-45deg);
+}
+
+.statusIcon-negative:after,
+.statusIcon-positive:after {
+  transform: rotate(45deg);
+}
+
+.complete {
+  background-color: #45bb59;
+}
